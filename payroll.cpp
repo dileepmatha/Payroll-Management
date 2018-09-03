@@ -27,7 +27,6 @@ class emp{
     bool payroll;
 public:
     void write(){
-
         cout<<"\n enter the employee  id:";
         cin>>empid;
         cout<<"\n enter the  employee name :";
@@ -98,8 +97,8 @@ void modify_password(int empid){
 			        {
 			            cout << "\nEnter the new password ";
 			            cin>>temp;
-			      		obj.setpassword(temp);
-			            int pos = -1 * sizeof(obj);
+			      	    obj.setpassword(temp);
+			            int pos = -1*sizeof(obj);
 			            myfile.seekp(pos, ios::cur);
 			            myfile.write((char*)&obj, sizeof(obj));
 			        }
@@ -107,7 +106,7 @@ void modify_password(int empid){
 			}else throw UserNotfound();
 }
 void withdrow(int empid){
-    fstream myfile;
+    			fstream myfile;
 			if(search(empid)){
 			    myfile.open("emp.dat",ios::in | ios::out);
 			    emp obj;
@@ -199,7 +198,7 @@ void modify_pay(int empid){
 			    while(myfile.read((char*)&obj, sizeof(obj)))
 			        if(empid==obj.retempid())
 			        {
-			      		obj.setpayroll(true);
+			      	    obj.setpayroll(true);
 			            int pos = -1 * sizeof(obj);
 			            myfile.seekp(pos, ios::cur);
 			            myfile.write((char*)&obj, sizeof(obj));
